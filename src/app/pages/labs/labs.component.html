@@ -1,0 +1,31 @@
+<p>{{welcome}}</p>
+<ul>
+  <li *ngFor="let lab of task(); index as i">
+    {{i}} {{lab}}
+  </li>
+</ul>
+<hr/>
+<h2>{{'hola '.repeat(3)}}</h2>
+<input type="text" [value]="name()">
+<button (click)="onClick()">Click me!</button>
+<p>(Change)</p>
+<input type="number" [value] = "age" (change)="onChangeHandler($event)">
+<p>(Change)</p>
+<input type="text" [value] = "lastName" (change)="onChangeHandler($event)">
+<p>(keyDown)</p>
+<input type="text" [value]="name()" (keydown.shift.t)="onClick()">
+<h1>Signal</h1>
+<input type="text" [value]="name()" (input)="onChangeHandler($event)">
+<p>{{name()}}</p>
+<h1>Formularios</h1>
+<input type="color" [formControl]="colorControl"/>
+<p>{{colorControl.value}}</p>
+<svg>
+  <rect x="0" y="0" width="100" height="100" [attr.fill]="colorControl.value" />
+</svg>
+<input type="number" [formControl]="widthControl">
+<span style=" display:block; height: 100px;" [style.backgroundColor]="colorControl.value" [style.width.px]="widthControl.value"></span>
+<input type="text" [formControl] = "messageControl">
+<p class="inactive" [class.active]="messageControl.valid && messageControl.touched">aparece un color</p>
+
+
